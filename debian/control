@@ -8,5 +8,5 @@ Homepage: http://antix.mepis.org
 
 Package: antix-cc-full-antix
 Architecture: all
-Depends: gtkdialog, yad, geany, leafpad, ktsuss, lxappearance, sysv-rc-conf, rxvt-unicode, wallpaper-antix, user-management-antix, keyboard-cc-antix, arandr, gparted, partimage, grsync, mountbox-antix, live-usb-gui-antix, inxi-gui-antix, mouse-cc-antix, alsa-utils, synaptic, set-screen-blank-antix   
+Depends: gtkdialog, yad, geany, leafpad, lxappearance, sysv-rc-conf, rxvt-unicode, wallpaper-antix, user-management-antix, keyboard-cc-antix, arandr, gparted, partimage, grsync, mountbox-antix, live-usb-gui-antix, inxi-gui-antix, mouse-cc-antix, alsa-utils, synaptic, set-screen-blank-antix   
 Description: Control centre for antiX-full.
