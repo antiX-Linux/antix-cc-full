@@ -190,7 +190,7 @@ $edit_jwm
         <action>desktop-defaults-run -te $HOME/.conkyrc  &</action>
       </button>
       <text use-markup="true" width-chars="28">
-        <label>$(echo $"Edit System Monitor")</label>
+        <label>$(echo $"Edit System Monitor(conky)")</label>
       </text>
     </hbox>
   </vbox>
@@ -346,7 +346,7 @@ $edit_icewm
     <hbox>
       <button>
         <input file>$ICONS/connectshares.png</input>
-        <action>connectshares &</action>
+        <action>connectshares-config &</action>
       </button>
       <text use-markup="true" width-chars="28">
         <label>$(echo $"Connect Shares")</label>
