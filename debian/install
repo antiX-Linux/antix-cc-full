@@ -1,6 +1,6 @@
 antiXCC.desktop     /usr/share/applications/antix
 locale/*	    /usr/share/locale
-changelog.gz        /usr/share/doc/antix-cc-base-antix
-copyright           /usr/share/doc/antix-cc-base-antix
+changelog.gz        /usr/share/doc/antix-cc-full-antix
+copyright           /usr/share/doc/antix-cc-full-antix
 icons/*             /usr/share/icons
-antixcc.sh          /usr/local/bin 
+antixcc.sh          /usr/local/bin
