@@ -1,4 +1,4 @@
-antix-cc-base
+antix-cc-full
 =============
 
-Control centre for antiX base edition
+Control centre for antiX full edition
