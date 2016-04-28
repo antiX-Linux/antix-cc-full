@@ -1,3 +1,9 @@
+antix-cc-full-antix (0.4.11) unstable; urgency=medium
+
+  * Fix link to show Remaster when running live - use /etc/ 
+
+ -- anticapitalista <antix@operamail.com>  Sun, 03 Apr 2016 23:26:43 +0300
+
 antix-cc-full-antix (0.4.10+nmu1) unstable; urgency=medium
 
   * Live tab grep for overlayfs not aufs 
