@@ -99,6 +99,20 @@ test -d $excludes_dir && edit_excludes=$(cat <<Edit_Excludes
 Edit_Excludes
 )
 
+global_dir=/etc/desktop-session
+test -d $global_dir  && edit_global=$(cat <<Edit_Global
+    <hbox>
+      <button>
+        <input file>$ICONS/config-users.png</input>
+        <action>gksu $EDITOR $global_dir/*.conf $global_dir/startup &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"Global Desktop-Session")</label>
+      </text>
+    </hbox>
+Edit_Global
+)
+
 [ -e /etc/live/config/save-persist -o -e /etc/live/config/persist-save.conf ]  && persist_save=$(cat <<Persist_Save
     <hbox>
       <button>
@@ -421,15 +435,7 @@ $edit_icewm
         <label>$(echo $"Set Screen Resolution")</label>
       </text>
     </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/preferences-desktop.png</input>
-        <action>gksu $EDITOR /etc/desktop-session/*.conf /etc/desktop-session/startup &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Global Desktop-Session")</label>
-      </text>
-    </hbox>
+$edit_global
   </vbox>
   <vbox>
     <hbox>
@@ -459,7 +465,7 @@ $edit_icewm
         <label>$(echo $"Set Screen Blanking")</label>
       </text>
     </hbox>
-    <hbox>
+        <hbox>
       <button>
         <input file>$ICONS/config-users.png</input>
         <action>$EDITOR $HOME/.desktop-session/*.conf $HOME/.desktop-session/startup &</action>
@@ -468,6 +474,7 @@ $edit_icewm
         <label>$(echo $"User Desktop-Session")</label>
       </text>
     </hbox>
+
   </vbox>
 </hbox> </frame> </vbox>
 $live_tab
