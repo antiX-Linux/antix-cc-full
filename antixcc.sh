@@ -14,6 +14,7 @@
 # Latest Change: 05 March 2015 by BitJam: Add alsa-set-card, edit excludes, edit bootloader.  Fix indentation.
 #                                         Hide live tab on non-live systems.  Use echo instead of gettext.
 #                                         Remove unneeded doublequotes between tags.  Use $(...) instead of `...`.
+# Latest Change: 01 May 2016 by anticapitalista: Use 1 script and use hides if nor present on antiX-base
 # Acknowledgements: Original script by KDulcimer of TinyMe. http://tinyme.mypclinuxos.com
 #################################################################################################################################################
 
@@ -111,6 +112,104 @@ test -d $global_dir  && edit_global=$(cat <<Edit_Global
       </text>
     </hbox>
 Edit_Global
+)
+
+synaptic_dir=/usr/share/synaptic
+test -d $synaptic_dir  && edit_synaptic=$(cat <<Edit_Synaptic
+    <hbox>
+      <button>
+        <input file>$ICONS/synaptic.png</input>
+        <action>gksu synaptic &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"Manage Packages")</label>
+      </text>
+    </hbox>
+Edit_Synaptic
+)
+
+hwinfo_dir=/usr/share/hardinfo
+test -d $hwinfo_dir  && edit_hwinfo=$(cat <<Edit_Hwinfo
+    <hbox>
+      <button>
+        <input file>$ICONS/hwinfo.png</input>
+        <action>hardinfo &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"System Information")</label>
+      </text>
+    </hbox>
+Edit_Hwinfo
+)
+
+wicd_dir=/usr/share/wicd
+test -d $wicd_dir  && edit_wicd=$(cat <<Edit_Wicd
+    <hbox>
+      <button>
+        <input file>$ICONS/nm-device-wireless.png</input>
+        <action>wicd-gtk &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"Connect Wirelessly (wicd)")</label>
+      </text>
+    </hbox>
+Edit_Wicd
+)
+
+firewall_dir=/usr/share/gufw
+test -d $firewall_dir  && edit_firewall=$(cat <<Edit_Firewall
+    <hbox>
+      <button>
+        <input file>$ICONS/firewall.png</input>
+        <action>gksu gufw &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"Manage Firewall")</label>
+      </text>
+    </hbox>
+Edit_Firewall
+)
+
+backup_dir=/usr/share/luckybackup
+test -d $backup_dir  && edit_backup=$(cat <<Edit_Backup
+    <hbox>
+      <button>
+        <input file>$ICONS/luckybackup.png</input>
+        <action>gksu luckybackup &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"Backup Your System")</label>
+      </text>
+    </hbox>
+Edit_Backup
+)
+
+unetbootin_dir=/usr/share/doc/unetbootin
+test -d $unetbootin_dir  && edit_unetbootin=$(cat <<Edit_Unetbootin
+    <hbox>
+      <button>
+        <input file>$ICONS/usb-creator.png</input>
+        <action>gksu unetbootin &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"UNetbootin")</label>
+      </text>
+    </hbox>
+Edit_Unetbootin
+)
+
+printer_dir=/usr/share/system-config-printer
+test -d $printer_dir  && edit_printer=$(cat <<Edit_Printer
+    <hbox>
+      <button>
+        <input file>$ICONS/printer.png</input>
+        <action>system-config-printer &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"Setup a Printer")</label>
+      </text>
+    </hbox>
+Edit_Printer
 )
 
 [ -e /etc/live/config/save-persist -o -e /etc/live/config/persist-save.conf ]  && persist_save=$(cat <<Persist_Save
@@ -243,15 +342,7 @@ $edit_icewm
 <vbox> <frame> <hbox>
   <vbox>
 
-    <hbox>
-      <button>
-        <input file>$ICONS/synaptic.png</input>
-        <action>gksu synaptic &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Manage Packages")</label>
-      </text>
-    </hbox>
+$edit_synaptic
 
     <hbox>
       <button>
@@ -302,16 +393,7 @@ $edit_icewm
         <label>$(echo $"Edit Config Files")</label>
       </text>
     </hbox>
-    
-    <hbox>
-      <button>
-        <input file>$ICONS/hwinfo.png</input>
-        <action>hardinfo &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"System Information")</label>
-      </text>
-    </hbox>
+$edit_hwinfo    
     <hbox>
       <button>
         <input file>$ICONS/time-admin.png</input>
@@ -347,15 +429,7 @@ $edit_icewm
       </text>
     </hbox>
 
-    <hbox>
-      <button>
-        <input file>$ICONS/nm-device-wireless.png</input>
-        <action>wicd-gtk &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Connect Wirelessly (wicd)")</label>
-      </text>
-    </hbox>
+$edit_wicd
    
     <hbox>
       <button>
@@ -386,15 +460,7 @@ $edit_icewm
         <label>$(echo $"Configure wpa_supplicant")</label>
       </text>
     </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/firewall.png</input>
-        <action>gksu gufw &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Manage Firewall")</label>
-      </text>
-    </hbox>
+$edit_firewall
     <hbox>
       <button>
         <input file>$ICONS/advert-block.png</input>
@@ -498,24 +564,8 @@ $live_tab
         <label>$(echo $"Mount Connected Devices")</label>
       </text>
     </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/luckybackup.png</input>
-        <action>gksu luckybackup &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Backup Your System")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/usb-creator.png</input>
-        <action>gksu unetbootin &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"UNetbootin")</label>
-      </text>
-    </hbox>
+$edit_backup    
+$edit_unetbootin
   </vbox>
   <vbox>
     <hbox>
@@ -549,15 +599,7 @@ $live_tab
 </hbox> </frame> </vbox>
 <vbox> <frame> <hbox>
   <vbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/printer.png</input>
-        <action>system-config-printer &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Setup a Printer")</label>
-      </text>
-    </hbox>
+$edit_printer    
     <hbox>
       <button>
         <input file>$ICONS/computer.png</input>

@@ -1,3 +1,10 @@
+antix-cc-antix (0.4.13) unstable; urgency=medium
+
+  * Use hide so we use one script for both antiX-full and base
+  * Change control to suit antiX-base
+
+ -- anticapitalista <antix@operamail.com>  Sun, 01 May 2016 15:40:45 +0300
+
 antix-cc-full-antix (0.4.12) unstable; urgency=medium
 
   * Removed Global Desktop-Session 
