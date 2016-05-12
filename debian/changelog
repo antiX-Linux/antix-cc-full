@@ -1,3 +1,10 @@
+control-centre-antix (0.4.14) unstable; urgency=medium
+
+  * Relabelled antix2usb and UNetbootin 
+  * Renamed to control-centre-antix
+
+ -- anticapitalista <antix@operamail.com>  Thu, 12 May 2016 12:02:57 +0300
+
 antix-cc-antix (0.4.13) unstable; urgency=medium
 
   * Use hide so we use one script for both antiX-full and base

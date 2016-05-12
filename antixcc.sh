@@ -192,7 +192,7 @@ test -d $unetbootin_dir  && edit_unetbootin=$(cat <<Edit_Unetbootin
         <action>gksu unetbootin &</action>
       </button>
       <text use-markup="true" width-chars="28">
-        <label>$(echo $"UNetbootin")</label>
+        <label>$(echo $"Install to USB retain partitions")</label>
       </text>
     </hbox>
 Edit_Unetbootin
@@ -574,7 +574,7 @@ $edit_unetbootin
         <action>gksu antix2usb.py &</action>
       </button>
       <text use-markup="true" width-chars="28">
-        <label>$(echo $"antiX2usb")</label>
+        <label>$(echo $"Install to USB delete partitions")</label>
       </text>
     </hbox>
     <hbox>
