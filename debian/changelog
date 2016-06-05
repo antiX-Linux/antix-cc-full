@@ -1,3 +1,30 @@
+control-centre-antix (0.4.18) unstable; urgency=medium
+
+  * Added automount option 
+  * Added set-dpi
+  * Updated translations
+
+ -- anticapitalista <antix@operamail.com>  Thu, 02 Jun 2016 09:57:15 +0300
+
+control-centre-antix (0.4.17) unstable; urgency=medium
+
+  * updated translations 
+
+ -- anticapitalista <antix@operamail.com>  Mon, 30 May 2016 16:05:12 +0300
+
+control-centre-antix (0.4.16) unstable; urgency=medium
+
+  * fixed Data and Time bug 
+
+ -- anticapitalista <antix@operamail.com>  Sun, 29 May 2016 20:04:42 +0300
+
+control-centre-antix (0.4.15) unstable; urgency=medium
+
+  * added back the names of antiX2usb and UNetbootin
+  * Changed width from 28 to 32 
+
+ -- anticapitalista <antix@operamail.com>  Mon, 16 May 2016 12:06:00 +0300
+
 control-centre-antix (0.4.14) unstable; urgency=medium
 
   * Relabelled antix2usb and UNetbootin 
