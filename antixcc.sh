@@ -184,6 +184,20 @@ test -d $backup_dir  && edit_backup=$(cat <<Edit_Backup
 Edit_Backup
 )
 
+equalizer_dir=/usr/share/doc/alsamixer-equalizer-antix
+test -d $equalizer_dir  && edit_equalizer=$(cat <<Edit_Equalizer
+    <hbox>
+      <button>
+        <input file>$ICONS/audio-equalizer.png</input>
+        <action>desktop-defaults-run -t alsamixer -D equal &</action>
+      </button>
+      <text use-markup="true" width-chars="32">
+        <label>$(echo $"Alsamixer Equalizer")</label>
+      </text>
+    </hbox>
+Edit_Equalizer
+)
+
 unetbootin_dir=/usr/share/doc/unetbootin
 test -d $unetbootin_dir  && edit_unetbootin=$(cat <<Edit_Unetbootin
     <hbox>
@@ -665,16 +679,7 @@ $edit_printer
         <label>$(echo $"Adjust Mixer")</label>
       </text>
     </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/audio-equalizer.png</input>
-        <action>desktop-defaults-run -t alsamixer -D equal &</action>
-      </button>
-      <text use-markup="true" width-chars="32">
-        <label>$(echo $"Alsamixer Equalizer")</label>
-      </text>
-    </hbox>
-
+$edit_equalizer
   </vbox>
 </hbox> </frame> </vbox>
 
